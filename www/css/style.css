@@ -6,7 +6,12 @@
       color: blue;
       font-family: Times;
       border-radius: 20px;
-  }    
+  }
+  #time::after {
+    content: "秒";
+}
+
+
    
     #minuteStr {
         color: #ff0000;
