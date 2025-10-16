@@ -2,9 +2,9 @@
    body{
        background-color: #D1EEEE;
   }
-  
-
-       
+  button{
+      color: blue;
+  }    
    
     #minuteStr {
         color: #ff0000;
