@@ -107,6 +107,7 @@
         ctx.fillRect(0,0,canvas.width,canvas.height);
         var cx = canvas.width/2;
         var cy = canvas.height/2;
+        
         var ds = second/60;
         var dm = (minute+ds)/60;
         var dh = (hour%12+dm)/12;
@@ -132,12 +133,12 @@
         if ((!hide) || hour > 0) {
             var px = getX(cx,dh,0.4);
             var py = getY(cy,dh,0.4);
-            line(ctx,cx,cy,px,py,20, 'rgb(255, 100, 162)')
+            line(ctx,cx,cy,px,py,20, '#ff00aa')
         }
         if ((!hide) || hour > 0|| minute > 0) {
-            var px = getX(cx,dm,0.6);
-            var py = getY(cy,dm,0.6);
-            line(ctx,cx,cy,px,py,15, 'rgb(128, 255, 162)')
+            var px = getX(cx,dm,0.75);
+            var py = getY(cy,dm,0.75);
+            line(ctx,cx,cy,px,py,8, '#00ffff')
         }
         var px = getX(cx,ds,0.9);
         var py = getY(cy,ds,0.9);
