@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
   <link rel="stylesheet" href="css/style.css">
   <style>
+  #mycanvas {
+ 
+}    
 
   </style>
   <script>
@@ -156,6 +159,8 @@
     var rest = 0;
     var etime = 0;
 
+    var pauseTime = 0;
+
 
     
     // ボタンの初期設定
@@ -163,7 +168,8 @@
         $('#btnA').prop('disabled', false);
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
-        
+        $('#btnRestart').click(restartTimer);
+        $('#btn3').click(set3Min);
     }
 
     // Alarmの処理
@@ -197,6 +203,7 @@
     // ButtonBがクリックされた時の処理
     function btnBClick(e){
         active = false;
+        stopTimer();
         
         
     }
@@ -231,6 +238,24 @@
         
         
     } 
+    function stopTimer(){
+        active = false;
+        pauseTime = etime;
+    }
+
+    function restartTimer(){
+     if (!active && rest > 0) {
+     active = true;
+     startTime = new Date() - pauseTime * 1000;
+     }
+    }
+
+    function set3Min(){
+     $("#minute").val(3);
+     $("#second").val(0);
+     btnCClick();
+    }
+
 
   </script>
 </head>
@@ -244,8 +269,13 @@
     <div id="time">Time</div>
     <button id="btnA">Start</button>  
     <button id="btnB">Stop</button>  
-    <button id="btnC">Set</button>  
+    <button id="btnC">Set</button> 
+    <button id="btnRestart">再開</button>  
+    <button id="btn3">3分設定</button>
     <input type="number" id="minute" value=0 >
     <input type="number" id="second" value=15 >
 </body>
 </html>
+
+
+
