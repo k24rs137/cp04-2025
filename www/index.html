@@ -88,10 +88,16 @@
         ctx.lineWidth = width; 
         ctx.lineCap = "round"; 
         ctx.strokeStyle = color;
+
+        ctx.shadowBlur=10;
+        ctx.shadowColor=color;
+
         ctx.beginPath();
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
-        ctx.stroke();        
+        ctx.stroke();  
+
+        ctx.shadowBlur=0;      
     }    
     // 時計 clock(時, 分, 秒, 残り時間が短い時に不要な針を隠す)
     function clock(hour,minute,second,hide){
@@ -135,7 +141,7 @@
         }
         var px = getX(cx,ds,0.9);
         var py = getY(cy,ds,0.9);
-        line(ctx,cx,cy,px,py,5, 'rgb(128, 100, 255)')
+        line(ctx,cx,cy,px,py,5, '#00ffff');
     }
 
     // 残り秒数アナログ表示
